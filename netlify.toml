@@ -1,0 +1,16 @@
+[build]
+  # Base directory
+  base = ""
+  
+  # No build command needed for static site
+  command = ""
+  
+  # Directory to publish (the root of the repo)
+  publish = ""
+
+# Define branches for deployment
+[context.production]
+  branch = "main"
+
+[context.development]
+  branch = "development"
