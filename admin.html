@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hollywood Weekly Admin</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #ffc107;
+    }
+    .subtitle {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 25px;
+      color: #ccc;
+    }
+    .admin-content {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .admin-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .nav-item {
+      flex: 1;
+      min-width: 170px;
+      background-color: #2d2d2d;
+      border-radius: 4px;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+    }
+    .nav-item:hover {
+      background-color: #333;
+    }
+    .nav-item.active {
+      background-color: #ffc107;
+      color: #333;
+    }
+    .back-btn {
+      background-color: #333;
+      color: white;
+      border: 1px solid #555;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .footer {
+      text-align: center;
+      padding-top: 20px;
+      color: #777;
+      font-size: 12px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background-color: #2a2a2a;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #ffc107;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: #aaa;
+    }
+    .films-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .films-table th, .films-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+    .films-table th {
+      background-color: #2a2a2a;
+      color: #ccc;
+      font-weight: bold;
+    }
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+    .status-approved {
+      background-color: #198754;
+      color: white;
+    }
+    .status-pending {
+      background-color: #ffc107;
+      color: #333;
+    }
+    .status-rejected {
+      background-color: #dc3545;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>HOLLYWOOD WEEKLY</h1>
+      <p class="subtitle">Admin Dashboard</p>
+    </div>
+    
+    <a href="index.html" class="back-btn">← Back to Login</a>
+    
+    <div class="admin-nav">
+      <div class="nav-item active">Dashboard</div>
+      <div class="nav-item">Film Submissions</div>
+      <div class="nav-item">Users</div>
+      <div class="nav-item">Revenue</div>
+      <div class="nav-item">Distribution</div>
+      <div class="nav-item">Settings</div>
+    </div>
+    
+    <div class="admin-content">
+      <h2>Platform Overview</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">127</div>
+          <div class="stat-label">Total Films</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">84</div>
+          <div class="stat-label">Active Filmmakers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$42,680</div>
+          <div class="stat-label">Monthly Revenue</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">315,749</div>
+          <div class="stat-label">Total Views</div>
+        </div>
+      </div>
+      
+      <h3>Recent Submissions</h3>
+      <table class="films-table">
+        <thead>
+          <tr>
+            <th>Film Title</th>
+            <th>Filmmaker</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Platforms</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The Silent Echo</td>
+            <td>Maria Rodriguez</td>
+            <td>May 18, 2025</td>
+            <td><span class="status-badge status-pending">Pending Review</span></td>
+            <td>YouTube TV, Prime</td>
+          </tr>
+          <tr>
+            <td>Lights of Tomorrow</td>
+            <td>James Lee</td>
+            <td>May 17, 2025</td>
+            <td><span class="status-badge status-approved">Approved</span></td>
+            <td>All Platforms</td>
+          </tr>
+          <tr>
+            <td>Running Wild</td>
+            <td>Sarah Johnson</td>
+            <td>May 15, 2025</td>
+            <td><span class="status-badge status-approved">Approved</span></td>
+            <td>YouTube TV, Prime, Peacock</td>
+          </tr>
+          <tr>
+            <td>Urban Myths</td>
+            <td>David Williams</td>
+            <td>May 14, 2025</td>
+            <td><span class="status-badge status-rejected">Rejected</span></td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>Midnight Tales</td>
+            <td>Lisa Brown</td>
+            <td>May 12, 2025</td>
+            <td><span class="status-badge status-approved">Approved</span></td>
+            <td>All Platforms</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="footer">
+      © 2025 Hollywood Weekly Magazine. All rights reserved.<br>
+      Protected by Hollywood Weekly Distribution Platform
+    </div>
+  </div>
+  
+  <script>
+    document.querySelectorAll('.nav-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-item').forEach(navItem => {
+          navItem.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        if (this.textContent !== 'Dashboard') {
+          alert('This section will be available in the full version.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
