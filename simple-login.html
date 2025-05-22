@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hollywood Weekly Platform Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      color: white;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+      margin-bottom: 30px;
+    }
+    
+    .logo h1 {
+      color: #4a6cf7;
+      font-size: 24px;
+    }
+    
+    .logo p {
+      color: #aaa;
+      font-size: 14px;
+    }
+    
+    .contact-info {
+      text-align: right;
+    }
+    
+    .contact-info .phone {
+      color: #4a6cf7;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .left-column {
+      flex: 1;
+    }
+    
+    .right-column {
+      flex: 1;
+    }
+    
+    .login-box {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .login-box h2 {
+      color: #4a6cf7;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background-color: #222;
+      color: white;
+      font-size: 16px;
+    }
+    
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #4a6cf7, #3451d1);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+    
+    .login-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .platform-section {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .platform-section h2 {
+      color: #4a6cf7;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .platform-item {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    .platform-icon {
+      font-size: 24px;
+      color: #4a6cf7;
+      margin-right: 15px;
+    }
+    
+    .platform-name {
+      font-weight: bold;
+    }
+    
+    .pricing-section {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .pricing-section h2 {
+      color: #4a6cf7;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .price-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .price-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .price-card-header {
+      background: linear-gradient(135deg, #4a6cf7, #3451d1);
+      padding: 15px;
+      font-weight: bold;
+    }
+    
+    .card-price {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 15px 0 5px;
+    }
+    
+    .card-period {
+      color: #aaa;
+      padding-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .price-card-body {
+      padding: 15px;
+    }
+    
+    .features-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    
+    .features-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+    }
+    
+    .features-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .features-list li:before {
+      content: "✓ ";
+      color: #4a6cf7;
+    }
+    
+    .quick-links {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .quick-links h2 {
+      color: #4a6cf7;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      background-color: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .link-btn:hover {
+      background-color: #222;
+      transform: translateY(-2px);
+    }
+    
+    .link-btn i {
+      margin-right: 10px;
+      color: #4a6cf7;
+      font-size: 18px;
+    }
+    
+    .demo-credentials {
+      margin-top: 30px;
+      text-align: center;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    
+    .demo-credentials strong {
+      color: #4a6cf7;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #777;
+    }
+    
+    .main-nav {
+      margin-bottom: 30px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      background-color: #111;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .nav-links li {
+      flex: 1;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 15px 0;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .nav-link:hover {
+      background-color: #1a1a1a;
+      color: #4a6cf7;
+    }
+    
+    .nav-link.active {
+      background-color: #4a6cf7;
+      color: white;
+    }
+    
+    #about, #features, #contact {
+      padding-top: 60px;
+      margin-top: -60px;
+    }
+    
+    .content-section {
+      padding: 50px 0;
+      margin-bottom: 30px;
+    }
+    
+    .dark-bg {
+      background-color: #0c0c0c;
+    }
+    
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      color: #4a6cf7;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .section-desc {
+      color: #ddd;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .about-card {
+      background-color: #111;
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .about-icon {
+      font-size: 36px;
+      color: #4a6cf7;
+      margin-bottom: 15px;
+    }
+    
+    .about-card h3 {
+      color: white;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .about-card p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+      gap: 25px;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      background-color: #161616;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .feature-icon {
+      font-size: 28px;
+      color: #4a6cf7;
+      margin-right: 20px;
+      min-width: 28px;
+    }
+    
+    .feature-content h3 {
+      color: white;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    
+    .feature-content p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    
+    .contact-form {
+      background-color: #111;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background-color: #222;
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+      resize: vertical;
+    }
+    
+    .contact-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #4a6cf7, #3451d1);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    
+    .contact-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .contact-info-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .contact-info-item {
+      background-color: #111;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .contact-info-icon {
+      font-size: 24px;
+      color: #4a6cf7;
+      margin-right: 15px;
+    }
+    
+    .contact-info-content h3 {
+      color: white;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    
+    .contact-info-content p {
+      color: #ccc;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .platform-grid, .price-cards, .links-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .contact-info {
+        text-align: left;
+        margin-top: 10px;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+      }
+      
+      .nav-link {
+        border-bottom: 1px solid #222;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-grid, .contact-info-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <h1>Hollywood Weekly</h1>
+        <p>Distribution Platform</p>
+      </div>
+      <div class="contact-info">
+        <p>Contact Us:</p>
+        <p class="phone">(323) 456-5004</p>
+      </div>
+    </header>
+    
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link active">HOME</a></li>
+        <li><a href="#about" class="nav-link">ABOUT</a></li>
+        <li><a href="#features" class="nav-link">FEATURES</a></li>
+        <li><a href="#contact" class="nav-link">CONTACT</a></li>
+      </ul>
+    </nav>
+    
+    <div class="main-content">
+      <div class="left-column">
+        <div class="login-box">
+          <h2>Platform Login</h2>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+          </form>
+          <div class="demo-credentials">
+            For demo access use:<br>
+            <strong>Admin:</strong> admin / admin2025<br>
+            <strong>Filmmaker:</strong> filmmaker / film2025
+          </div>
+        </div>
+        
+        <div class="quick-links">
+          <h2>Platform Access</h2>
+          <div class="links-grid">
+            <a href="admin.html" class="link-btn">
+              <i class="fas fa-user-shield"></i> Admin Demo
+            </a>
+            <a href="filmmaker.html" class="link-btn">
+              <i class="fas fa-film"></i> Filmmaker Demo
+            </a>
+            <a href="mobile-demo.html" class="link-btn">
+              <i class="fas fa-mobile-alt"></i> Mobile Demo
+            </a>
+            <a href="copyright.html" class="link-btn">
+              <i class="fas fa-copyright"></i> Copyright Registration
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="right-column">
+        <div class="platform-section">
+          <h2>Streaming Platforms</h2>
+          <div class="platform-grid">
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fab fa-google"></i></div>
+              <div class="platform-name">Google TV</div>
+            </div>
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fab fa-amazon"></i></div>
+              <div class="platform-name">Prime Video</div>
+            </div>
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fab fa-apple"></i></div>
+              <div class="platform-name">Apple TV</div>
+            </div>
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fas fa-tv"></i></div>
+              <div class="platform-name">Peacock</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pricing-section">
+          <h2>Distribution Plans</h2>
+          <div class="price-cards">
+            <div class="price-card">
+              <div class="price-card-header">Basic</div>
+              <div class="card-price">$99</div>
+              <div class="card-period">for 3 months</div>
+              <div class="price-card-body">
+                <ul class="features-list">
+                  <li>Distribution to all platforms</li>
+                  <li>Basic analytics</li>
+                  <li>Revenue tracking</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="price-card">
+              <div class="price-card-header">Premium</div>
+              <div class="card-price">$599</div>
+              <div class="card-period">for 6 months</div>
+              <div class="price-card-body">
+                <ul class="features-list">
+                  <li>Priority distribution</li>
+                  <li>Advanced analytics</li>
+                  <li>Promotional features</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="price-card">
+              <div class="price-card-header">Professional</div>
+              <div class="card-price">$999</div>
+              <div class="card-period">for 12 months</div>
+              <div class="price-card-body">
+                <ul class="features-list">
+                  <li>Featured placement</li>
+                  <li>Marketing support</li>
+                  <li>Revenue maximization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quick-links">
+          <h2>Legal Information</h2>
+          <div class="links-grid">
+            <a href="terms.html" class="link-btn">
+              <i class="fas fa-file-contract"></i> Terms of Service
+            </a>
+            <a href="privacy.html" class="link-btn">
+              <i class="fas fa-shield-alt"></i> Privacy Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <div class="section-container">
+        <h2 class="section-title">About Hollywood Weekly Platform</h2>
+        <p class="section-desc">The Hollywood Weekly Distribution Platform is a comprehensive solution for independent filmmakers to distribute their content to major streaming services including Google TV, Prime Video, Peacock, and Apple TV.</p>
+        
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-globe"></i></div>
+            <h3>Global Distribution</h3>
+            <p>Reach millions of viewers worldwide through our partnerships with major streaming platforms.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-dollar-sign"></i></div>
+            <h3>Revenue Generation</h3>
+            <p>Monetize your content through multiple revenue models including subscription, pay-per-view, and advertising.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Performance Analytics</h3>
+            <p>Track your content's performance and revenue in real-time across all platforms.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="about-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Copyright Protection</h3>
+            <p>Secure your intellectual property with our integrated copyright registration system.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="content-section dark-bg">
+      <div class="section-container">
+        <h2 class="section-title">Platform Features</h2>
+        <p class="section-desc">Our platform offers a comprehensive suite of tools designed to help filmmakers distribute, monetize, and track their content.</p>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-upload"></i></div>
+            <div class="feature-content">
+              <h3>One-Click Distribution</h3>
+              <p>Upload your content once and distribute it to multiple streaming platforms simultaneously.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-money-bill-wave"></i></div>
+            <div class="feature-content">
+              <h3>Multiple Revenue Models</h3>
+              <p>Choose from subscription (SVOD), pay-per-view (TVOD), or ad-supported (AVOD) revenue models.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="feature-content">
+              <h3>Advanced Analytics</h3>
+              <p>Access detailed analytics dashboards showing views, engagement, and revenue metrics.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="feature-content">
+              <h3>Monthly Statements</h3>
+              <p>Receive automated monthly revenue statements with platform-specific breakdowns.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-tag"></i></div>
+            <div class="feature-content">
+              <h3>Promotional Tools</h3>
+              <p>Create trailers, promotional clips, and marketing materials for your content.</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <div class="feature-content">
+              <h3>Audience Insights</h3>
+              <p>Understand your audience demographics and viewing patterns to optimize your content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+      <div class="section-container">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-desc">Have questions about the platform? Our team is ready to assist you with distribution, technical support, or account inquiries.</p>
+        
+        <div class="contact-grid">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="contactEmail" placeholder="Your Email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Subject" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="contact-btn">Send Message</button>
+            </form>
+          </div>
+          
+          <div class="contact-info-container">
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-info-content">
+                <h3>Phone</h3>
+                <p>(323) 456-5004</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-info-content">
+                <h3>Email</h3>
+                <p>info@hollywoodweekly.tv</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+              <div class="contact-info-content">
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 9AM - 5PM PT</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-info-content">
+                <h3>Location</h3>
+                <p>Los Angeles, California</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      &copy; 2025 Hollywood Weekly Distribution Platform. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      if (username === 'admin' && password === 'admin2025') {
+        window.location.href = 'admin.html';
+      } else if (username === 'filmmaker' && password === 'film2025') {
+        window.location.href = 'filmmaker.html';
+      } else {
+        alert('Invalid username or password. Try using admin/admin2025 or filmmaker/film2025');
+      }
+    });
+    
+    // Contact form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('contactEmail').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+      
+      alert('Thanks for contacting us, ' + name + '! We received your message and will get back to you soon at ' + email + '.');
+      this.reset();
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 50,
+              behavior: 'smooth'
+            });
+            
+            // Update active link
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+              navLink.classList.remove('active');
+            });
+            this.classList.add('active');
+          }
+        }
+      });
+    });
+    
+    // Activate navigation link based on scroll position
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + sectionId) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+      
+      // Check if we're at the top of the page (home)
+      if (scrollPosition < 100) {
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#') {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
