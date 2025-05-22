@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hollywood Weekly Platform</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      background-color: #000000;
+      color: white;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+      margin-bottom: 30px;
+    }
+    
+    .logo h1 {
+      color: #4a6cf7;
+      font-size: 24px;
+    }
+    
+    .logo p {
+      color: #aaa;
+      font-size: 14px;
+    }
+    
+    .contact-info {
+      text-align: right;
+    }
+    
+    .contact-info .phone {
+      color: #4a6cf7;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+    .main-nav {
+      margin-bottom: 30px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      background-color: #111;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .nav-links li {
+      flex: 1;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 15px 0;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .nav-link:hover {
+      background-color: #1a1a1a;
+      color: #4a6cf7;
+    }
+    
+    .nav-link.active {
+      background-color: #4a6cf7;
+      color: white;
+    }
+    
+    .main-content {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .left-column {
+      flex: 1;
+    }
+    
+    .right-column {
+      flex: 1;
+    }
+    
+    .login-box {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .login-box h2 {
+      color: #4a6cf7;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background-color: #222;
+      color: white;
+      font-size: 16px;
+    }
+    
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #4a6cf7, #3451d1);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+    
+    .login-btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .platform-section {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .platform-section h2 {
+      color: #4a6cf7;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .platform-item {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    .platform-icon {
+      font-size: 24px;
+      color: #4a6cf7;
+      margin-right: 15px;
+    }
+    
+    .platform-name {
+      font-weight: bold;
+    }
+    
+    .pricing-section {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .pricing-section h2 {
+      color: #4a6cf7;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .price-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .price-card {
+      background-color: #1a1a1a;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .price-card-header {
+      background: linear-gradient(135deg, #4a6cf7, #3451d1);
+      padding: 15px;
+      font-weight: bold;
+    }
+    
+    .card-price {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 15px 0 5px;
+    }
+    
+    .card-period {
+      color: #aaa;
+      padding-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .price-card-body {
+      padding: 15px;
+    }
+    
+    .features-list {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 15px;
+    }
+    
+    .features-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #333;
+    }
+    
+    .features-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .features-list li:before {
+      content: "✓ ";
+      color: #4a6cf7;
+    }
+    
+    .quick-links {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .quick-links h2 {
+      color: #4a6cf7;
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+    
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      background-color: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    
+    .link-btn:hover {
+      background-color: #222;
+      transform: translateY(-2px);
+    }
+    
+    .link-btn i {
+      margin-right: 10px;
+      color: #4a6cf7;
+      font-size: 18px;
+    }
+    
+    .demo-credentials {
+      margin-top: 30px;
+      text-align: center;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    
+    .demo-credentials strong {
+      color: #4a6cf7;
+    }
+    
+    .content-section {
+      padding: 50px 0;
+      margin-bottom: 30px;
+    }
+    
+    .dark-bg {
+      background-color: #0c0c0c;
+    }
+    
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .section-title {
+      color: #4a6cf7;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .section-desc {
+      color: #ddd;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #777;
+    }
+    
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .platform-grid, .price-cards, .links-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .contact-info {
+        text-align: left;
+        margin-top: 10px;
+      }
+      
+      .nav-links {
+        flex-direction: column;
+      }
+      
+      .nav-link {
+        border-bottom: 1px solid #222;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <h1>Hollywood Weekly</h1>
+        <p>Distribution Platform</p>
+      </div>
+      <div class="contact-info">
+        <p>Contact Us:</p>
+        <p class="phone">(323) 456-5004</p>
+      </div>
+    </header>
+    
+    <nav class="main-nav">
+      <ul class="nav-links">
+        <li><a href="#" class="nav-link active">HOME</a></li>
+        <li><a href="#about" class="nav-link">ABOUT</a></li>
+        <li><a href="#features" class="nav-link">FEATURES</a></li>
+        <li><a href="#contact" class="nav-link">CONTACT</a></li>
+      </ul>
+    </nav>
+    
+    <div class="main-content">
+      <div class="left-column">
+        <div class="login-box">
+          <h2>Platform Login</h2>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+          </form>
+          <div class="demo-credentials">
+            For demo access use:<br>
+            <strong>Admin:</strong> admin / admin2025<br>
+            <strong>Filmmaker:</strong> filmmaker / film2025
+          </div>
+        </div>
+        
+        <div class="quick-links">
+          <h2>Platform Access</h2>
+          <div class="links-grid">
+            <a href="admin.html" class="link-btn">
+              <i class="fas fa-user-shield"></i> Admin Demo
+            </a>
+            <a href="filmmaker.html" class="link-btn">
+              <i class="fas fa-film"></i> Filmmaker Demo
+            </a>
+            <a href="mobile-demo.html" class="link-btn">
+              <i class="fas fa-mobile-alt"></i> Mobile Demo
+            </a>
+            <a href="copyright.html" class="link-btn">
+              <i class="fas fa-copyright"></i> Copyright Registration
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="right-column">
+        <div class="platform-section">
+          <h2>Streaming Platforms</h2>
+          <div class="platform-grid">
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fab fa-google"></i></div>
+              <div class="platform-name">Google TV</div>
+            </div>
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fab fa-amazon"></i></div>
+              <div class="platform-name">Prime Video</div>
+            </div>
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fab fa-apple"></i></div>
+              <div class="platform-name">Apple TV</div>
+            </div>
+            <div class="platform-item">
+              <div class="platform-icon"><i class="fas fa-tv"></i></div>
+              <div class="platform-name">Peacock</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pricing-section">
+          <h2>Distribution Plans</h2>
+          <div class="price-cards">
+            <div class="price-card">
+              <div class="price-card-header">Basic</div>
+              <div class="card-price">$99</div>
+              <div class="card-period">for 3 months</div>
+              <div class="price-card-body">
+                <ul class="features-list">
+                  <li>Distribution to all platforms</li>
+                  <li>Basic analytics</li>
+                  <li>Revenue tracking</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="price-card">
+              <div class="price-card-header">Premium</div>
+              <div class="card-price">$599</div>
+              <div class="card-period">for 6 months</div>
+              <div class="price-card-body">
+                <ul class="features-list">
+                  <li>Priority distribution</li>
+                  <li>Advanced analytics</li>
+                  <li>Promotional features</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="price-card">
+              <div class="price-card-header">Professional</div>
+              <div class="card-price">$999</div>
+              <div class="card-period">for 12 months</div>
+              <div class="price-card-body">
+                <ul class="features-list">
+                  <li>Featured placement</li>
+                  <li>Marketing support</li>
+                  <li>Revenue maximization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quick-links">
+          <h2>Legal Information</h2>
+          <div class="links-grid">
+            <a href="terms.html" class="link-btn">
+              <i class="fas fa-file-contract"></i> Terms of Service
+            </a>
+            <a href="privacy.html" class="link-btn">
+              <i class="fas fa-shield-alt"></i> Privacy Policy
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      &copy; 2025 Hollywood Weekly Distribution Platform. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      if (username === 'admin' && password === 'admin2025') {
+        window.location.href = 'admin.html';
+      } else if (username === 'filmmaker' && password === 'film2025') {
+        window.location.href = 'filmmaker.html';
+      } else {
+        alert('Invalid username or password. Try using admin/admin2025 or filmmaker/film2025');
+      }
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          
+          if (targetSection) {
+            window.scrollTo({
+              top: targetSection.offsetTop - 50,
+              behavior: 'smooth'
+            });
+            
+            // Update active link
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+              navLink.classList.remove('active');
+            });
+            this.classList.add('active');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
